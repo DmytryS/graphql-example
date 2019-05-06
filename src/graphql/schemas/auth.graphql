@@ -1,0 +1,14 @@
+type User {
+  _id: ID!
+}
+
+type AuthJwt {
+  token: String!
+  expires: String!
+  #   refreshToken: String!
+}
+
+type Mutation {
+  login(login: String!, password: String!): AuthJwt!
+  signup(username: String!, email: String!): User!
+}

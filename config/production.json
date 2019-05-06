@@ -1,0 +1,32 @@
+{
+  "SERVER": {
+    "port": 3000,
+    "uiUrl": "http://localhost:8080",
+    "baseUrl": "/api/v1/"
+  },
+  "DB": {
+    "type": "mongo",
+    "url": "mongodb://<user>:<password>@<host>:<port>/<database>"
+  },
+  "AUTH": {
+    "secret": "SOME_SECRET",
+    "expiresIn": "10d",
+    "refreshExpiresIn": "15d",
+    "saltRounds": 10
+  },
+  "MAIL": {
+    "from": "user@gmail.com",
+    "transport_options": {
+      "host": "smpt.gmail.com",
+      "service": "Gmail",
+      "auth": {
+        "user": "user@gmail.com",
+        "pass": "password"
+      }
+    }
+  },
+  "LOGGER": {
+    "path": "logs",
+    "filename": "graphql-example-production.log"
+  }
+}
