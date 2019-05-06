@@ -9,7 +9,7 @@ export class Logger {
   }
 
   configureLogs() {
-    const pathToFile = path.join(__dirname, '../../', this.config.LOGGER.path);
+    const pathToFile = path.join(__dirname, '../../../', this.config.LOGGER.path);
 
     if (!fs.existsSync(pathToFile)) {
       fs.mkdirSync(pathToFile);

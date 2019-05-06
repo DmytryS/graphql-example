@@ -1,5 +1,5 @@
 import { rule } from 'graphql-shield';
-import { AuthorizationError } from '../../lib/errors';
+import { AuthorizationError } from '../../utils/errors';
 
 export const isAuthenticated = rule({ cache: false })(
   // eslint-disable-next-line

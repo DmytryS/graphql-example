@@ -1,7 +1,7 @@
 import passport from 'passport';
 import moment from 'moment';
 import * as jwt from 'jsonwebtoken';
-import { AuthorizationError } from '../../lib/errors';
+import { AuthorizationError } from '../../utils/errors';
 import localStrategy from './localStrategy';
 import jwtStrategy from './jwtStrategy';
 import config from '../../../config';
@@ -19,9 +19,7 @@ export default {
       },
       (err, user, info) => {
         if (err) {
-          next(
-            new AuthorizationError({ message: err.message ? err.message : err })
-          );
+          next(new AuthorizationError({ message: err.message ? err.message : err }));
         }
 
         if (!user) {
@@ -52,10 +50,7 @@ export default {
   )(req)),
   signJwtToken: (objectToSign) => {
     const expires = moment()
-      .add(
-        parseInt(config.AUTH.expiresIn.slice(0, -1), 10),
-        config.AUTH.expiresIn.slice(-1)
-      )
+      .add(parseInt(config.AUTH.expiresIn.slice(0, -1), 10), config.AUTH.expiresIn.slice(-1))
       .toDate();
     const token = jwt.sign(objectToSign, config.AUTH.secret, {
       expiresIn: config.AUTH.expiresIn

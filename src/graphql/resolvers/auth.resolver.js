@@ -1,5 +1,5 @@
 import moment from 'moment';
-import { AuthorizationError } from '../../lib/errors';
+import { AuthorizationError } from '../../utils/errors';
 import { User, Action } from '../../models';
 import passportService from '../../services/passport';
 import mailer from '../../services/mailer';
@@ -23,8 +23,7 @@ export default {
       if (existingUser) {
         const isUsernameMatch = existingUser.username === args.input.username;
         const isEmailMatch = existingUser.email === args.input.email;
-        const errMsg = `${role} with this ${isUsernameMatch
-          && 'username'} ${isUsernameMatch
+        const errMsg = `${role} with this ${isUsernameMatch && 'username'} ${isUsernameMatch
           && isEmailMatch
           && 'or'} ${isEmailMatch && 'email'} already exists`;
         throw new Error(errMsg);

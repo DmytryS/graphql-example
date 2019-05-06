@@ -34,6 +34,6 @@
     "arrow-parens": 2,
     "indent": ["error", 2],
     "no-underscore-dangle": "off",
-    "prefer-default-export": false
+    "import/prefer-default-export": "off"
   }
 }

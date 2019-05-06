@@ -1,5 +1,5 @@
 import { News } from '../../models';
-import { NotFoundError } from '../../lib/errors';
+import { NotFoundError } from '../../utils/errors';
 
 export default {
   Query: {

@@ -46,7 +46,7 @@ describe('News', () => {
   });
 
   describe('Create', () => {
-    it('Should add news', async () => {
+    it('Should create news', async () => {
       const response = await request(server)
         .post('/graphql')
         .set('authorization', token)
@@ -58,6 +58,7 @@ describe('News', () => {
           ) {
             _id
             name
+            text
           }
         }
         `
@@ -175,7 +176,7 @@ describe('News', () => {
           updateNews(
             _id: "${news1._id.toString()}",
             name: "Updated news header",
-            "text": "Updated text"
+            text: "Updated text"
           ) {
             _id
             name

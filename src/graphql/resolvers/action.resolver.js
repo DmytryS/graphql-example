@@ -1,4 +1,4 @@
-import { NotFoundError } from '../../lib/errors';
+import { NotFoundError } from '../../utils/errors';
 import { Action } from '../../models';
 import mailer from '../../services/mailer';
 
@@ -44,8 +44,7 @@ export default {
       await mailer.send(action.user.email, 'NOTIFICATION', {
         username: action.user.username,
         subject: 'Your password successfully set',
-        messsage:
-          'Your password successfully set. Now you can login with your new password'
+        messsage: 'Your password successfully set. Now you can login with your new password'
       });
 
       return action;

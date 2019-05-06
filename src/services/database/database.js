@@ -23,9 +23,7 @@ export class Database {
   }
 
   _onOpen() {
-    this.logger.info(
-      `Succesfully connected to ${process.env.NODE_ENV} database`
-    );
+    this.logger.info(`Succesfully connected to ${process.env.NODE_ENV} database`);
   }
 
   _onDisconnected() {
