@@ -1,0 +1,20 @@
+type News {
+  _id: ID!
+  name: String!
+  text: String!
+}
+
+type NewsId {
+  _id: ID!
+}
+
+type Query {
+  getNews(_id: ID!): News!
+  getAllNews: [News]!
+}
+
+type Mutation {
+  createNews(name: String!, text: String!): News!
+  updateNews(_id: ID!, name: String, text: String!): News!
+  deleteNews(_id: ID!): NewsId!
+}

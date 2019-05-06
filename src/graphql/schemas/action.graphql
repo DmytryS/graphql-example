@@ -1,0 +1,25 @@
+enum Type {
+  REGISTER
+  RESET_PASSWORD
+}
+
+type User {
+  _id: ID!
+  username: String!
+  email: String!
+  role: Role!
+}
+
+type Action {
+  _id: ID!
+  user: User!
+  type: Type!
+}
+
+type Query {
+  action(_id: ID!): Action!
+}
+
+type Mutation {
+  runAction(_id: ID!, password: String!): Action!
+}
